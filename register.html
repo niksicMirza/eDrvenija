@@ -1,114 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
+<link rel="stylesheet" href="/css/style.css">
 <style>
-
-  html {    
+   html {    
     background: url('assets/img/backLogin.jpg') no-repeat center fixed;     
     background-size: cover;
     font-family: sans-serif;
   }
-
-  .registerbox{
-    width:370px;
-    height:520px;
-    background: #000;
-    color:#fff;
-    top:50%;
-    left:50%;
-    position: absolute;
-    margin-top: 25px;
-    transform: translate(-50%, -50%);
-    box-sizing:border-box;
-    padding: 70px 30px;
-
-  }
-
-  .registerbox input{
-    width:100%;
-    margin-bottom: 3px;
-  }
-
-  .registerbox input[type="text"], input[type=password], input[type=email], input[type=tel]{
-    border: none;
-    border-bottom: 1px solid #fff;
-    background: transparent;
-    outline:none;
-    height: 40px;
-    color: #fff;
-    font-size: 16px;
-  }
-
-  .registerbox button{
-    width:100%;
-    border:none;
-    outline:none;
-    height: 40px;
-    background: #fb2525;
-    color: #fff;
-    font-size: 18px;
-    border-radius: 20px;
-    margin-top: 20px;
-  }
-
-  .registerbox button[type="submit"]:hover{
-    cursor: pointer;
-    background: #ffc107;
-    color: #000;
-    margin-top: 5px;
-  }
-
-  .error{
-    color:red;
-    font-size:10;
-  }
-
-  h1{
-    margin:0;
-    padding: 0 0 20px;
-    text-align: center;
-    font-size: 22px;
-    margin-top: 10px;
-  }
-
-  .registerbox p{
-    margin:0;
-    padding: 0;
-    font-weight: bold;
-  }
-
-  .registerbox a{
-    text-decoration: none;
-    font-size: 10;
-    line-height: 50px;
-    color: darkgrey;
-  }
-
-  .registerbox a:hover{
-      color: #ffc107;
-  }
 </style>
-
 <head>
-  <title>eDrvenija Register</title>
+  <title>eDrvenija Registracija</title>
 </head>
 
 <body>
   <div class="registerbox">
-    <h1>Register here</h1>
+    <h1>Registrujte se ovdje</h1>
     <form id="registerbox" method="get">
       
         <p>Username</p>
-        <input type="text" name="username_customer" id="username_customer" minlength="2" placeholder="Write your username..." required>
+        <input type="text" name="username_customer" id="username_customer" minlength="2" placeholder="Unesite zeljeni username" required>
         <p>Full Name</p>
-        <input type="text" name="fullname_customer" id="fullname_customer" minlength="2" placeholder="Write your name..." required>
+        <input type="text" name="fullname_customer" id="fullname_customer" minlength="2" placeholder="Unesite svoje ime" required>
         <p>E-mail</p>
-        <input type="email" name="email_customer" id="email_customer" placeholder="Write your e-mail..." required>
+        <input type="email" name="email_customer" id="email_customer" placeholder="Unesite e-mail" required>
         <p>Password</p>
-        <input type="password" name="password_customer" id="password_customer" placeholder="Write your password..." required>
-      
-        <button type="submit" name="sumbit">Sumbit</button>
+        <input type="password" name="password_customer" id="password_customer" placeholder="Unesite password" required>
+        <button type="submit" name="sumbit">Registruj se!</button>
 
-        <a href="login.html"> Aready have an account? </a>
+        <a href="login.html"> Imate racun? Prijavite se! </a>
 
     </form>
   </div>

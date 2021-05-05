@@ -1,0 +1,153 @@
+
+  html {    
+    background: url('assets/img/backLogin.jpg') no-repeat center fixed;     
+    background-size: cover;
+    font-family: sans-serif;
+  }
+
+  .loginbox {
+    width:320px;
+    height:390px;
+    background: rgb(22, 13, 13);
+    color:#fff;
+    top:50%;
+    left:50%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    box-sizing:border-box;
+    padding: 70px 30px;
+    border-radius:10%;
+
+  }
+
+  .loginbox input {
+    width:100%;
+    margin-bottom: 5px;
+  }
+
+  .loginbox input[type="text"], input[type=password], input[type=email] {
+    border: none;
+    border-bottom: 1px solid #fff;
+    background: transparent;
+    outline:none;
+    height: 40px;
+    color: #fff;
+    font-size: 16px;
+  }
+
+  .loginbox button {
+    width:100%;
+    border:none;
+    outline:none;
+    height: 40px;
+    background: #fb2525;
+    color: #fff;
+    font-size: 18px;
+    border-radius: 20px;
+    margin-top: 20px;
+  }
+
+  .loginbox button[type="submit"]:hover {
+    cursor: pointer;
+    background: #ffc107;
+    color: #000;
+    margin-bottom: 5px;
+  }
+
+  h1 {
+    margin:0;
+    padding: 0 0 20px;
+    text-align: center;
+    font-size: 22px;
+  }
+
+  .loginbox p {
+    margin:0;
+    padding: 0;
+    font-weight: bold;
+  }
+
+  .loginbox a {
+    text-decoration: none;
+    font-size: 10;
+    line-height: 50px;
+    color: darkgrey;
+    margin-top: 15px;
+  }
+
+  .loginbox a:hover {
+    color: #ffc107;
+  }
+
+
+  .registerbox{
+    width:370px;
+    height:520px;
+    background: #000;
+    color:#fff;
+    top:50%;
+    left:50%;
+    position: absolute;
+    margin-top: 25px;
+    transform: translate(-50%, -50%);
+    box-sizing:border-box;
+    padding: 70px 30px;
+
+  }
+
+  .registerbox input{
+    width:100%;
+    margin-bottom: 3px;
+  }
+
+  .registerbox input[type="text"], input[type=password], input[type=email], input[type=tel]{
+    border: none;
+    border-bottom: 1px solid #fff;
+    background: transparent;
+    outline:none;
+    height: 40px;
+    color: #fff;
+    font-size: 16px;
+  }
+
+  .registerbox button{
+    width:100%;
+    border:none;
+    outline:none;
+    height: 40px;
+    background: #fb2525;
+    color: #fff;
+    font-size: 18px;
+    border-radius: 20px;
+    margin-top: 20px;
+  }
+
+  .registerbox button[type="submit"]:hover{
+    cursor: pointer;
+    background: #ffc107;
+    color: #000;
+    margin-top: 5px;
+  }
+
+  .error{
+    color:red;
+    font-size:10;
+  }
+
+
+  .registerbox p{
+    margin:0;
+    padding: 0;
+    font-weight: bold;
+  }
+
+  .registerbox a{
+    text-decoration: none;
+    font-size: 10;
+    line-height: 50px;
+    color: darkgrey;
+  }
+
+  .registerbox a:hover{
+      color: #ffc107;
+  }
