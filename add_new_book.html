@@ -1,129 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Books</title>
-    <link rel="stylesheet" href="css/style.css" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" />
-    <link
-      rel="shortcut icon"
-      type="img/png"
-      href="assets/img/edrvenija-favicon.png"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/fontawesome.min.css"
-    />
-  </head>
-  <body>
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Books</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" />
+  <link rel="shortcut icon" type="img/png" href="assets/img/edrvenija-favicon.png" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/fontawesome.min.css" />
+</head>
+
+<body>
+  <div class="add-new-book-page">
     <div class="container">
-      <div class="navbar">
-        <div class="logo">
-          <a href="index.html"
-            ><img src="assets/img/edrvenija-transparent.png" width="125px"
-          /></a>
+      <div class="row">
+        <div class="col-2">
+          <img src="assets/img/image1.png" width="100%" />
         </div>
-        <nav>
-          <ul id="MenuItems">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="books.html">Books</a></li>
-            <li><a href="add_new_book.html">Add new book</a></li>
-            <li><a href="account.html">Account</a></li>
-          </ul>
-        </nav>
-        <a href="wishlist.html"
-          ><img src="assets/img/cart.png" width="30px" height="30px"
-        /></a>
-        <img
-          src="assets/img/menu.png"
-          class="menu-icon"
-          onclick="menutoggle()"
-        />
-      </div>
-    </div>
-
-    <div class="add-new-book-page">
-      <div class="container">
-        <div class="row">
-          <div class="col-2">
-            <img src="assets/img/image1.png" width="100%" />
-          </div>
-          <div class="col-2">
-            <div class="add-form-container">
-              <div class="form-title">
-                <h2>Add new book</h2>
-              </div>
-              <form id="AddNewBook">
-                <button
-                  class="btn_image"
-                  onclick="document.getElementById('getFile').click()"
-                >
-                  Insert book image
-                </button>
-                <input type="file" id="getFile" style="display: none" />
-                <input type="text" placeholder="Book name" />
-                <input type="text" placeholder="Writer" />
-                <input type="number" placeholder="Quantity" />
-                <input type="number" placeholder="Price (for 1 book)" />
-                <input type="text" placeholder="Your name" />
-                <input type="text" placeholder="Contact number" />
-                <button type="submit" class="btn">Add</button>
-              </form>
+        <div class="col-2">
+          <div class="add-form-container">
+            <div class="form-title">
+              <h2>Add new book</h2>
             </div>
+            <form id="AddNewBook">
+              <button class="btn_image" onclick="document.getElementById('getFile').click()">
+                Insert book image
+              </button>
+              <input type="file" id="getFile" style="display: none" />
+              <input type="text" placeholder="Book name" required />
+
+              <input type="text" placeholder="Writer"
+                onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode==32)"
+                required />
+              <input type="number" min="1" placeholder="Quantity" required />
+              <input type="number" min="1" placeholder="Price (for 1 book)" required />
+              <input type="text" placeholder="Your name"
+                onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode==32)"
+                required />
+              <input type="tel" id="phone" name="phone" placeholder="Contact number"
+                pattern="((061|062|065|063)-[0-9]{3}-[0-9]{3})"
+                title="You can only enter numbers! Use following format ***-***-*** " required />
+              <button type="submit" class="btn">Add</button>
+            </form>
           </div>
         </div>
       </div>
     </div>
-    <!----------------footer---------->
-    <div class="footer">
-      <div class="container">
-        <div class="row">
-          <div class="footer-col-1">
-            <h3>Download Our App</h3>
-            <p>Download App for Android of iOS.</p>
-            <div class="app-logo">
-              <img src="assets/img/play-store.png" />
-              <img src="assets/img/app-store.png" />
-            </div>
-          </div>
-          <div class="footer-col-2">
-            <img src="assets/img/edrvenija-black.png" />
-            <p>
-              Our Purpose Is To Sustainably Make the Pleasure and Benefits
-              <br />of Books Accessible to the Many.
-            </p>
-          </div>
-          <div class="footer-col-3">
-            <h3>Follow us</h3>
-            <ul>
-              <li>Facebook</li>
-              <li>Instagram</li>
-              <li>Twitter</li>
-              <li>YouTube</li>
-            </ul>
-          </div>
-        </div>
-        <hr />
-        <p class="copyright">Copyright 2021 - eDrvenija</p>
-      </div>
-    </div>
+  </div>
 
-    <!----------------js for nav menu---------->
-    <script>
-      var MenuItmes = document.getElementById("MenuItems");
+  <!----------------js for nav menu---------->
+  <script>
+    var MenuItmes = document.getElementById("MenuItems");
 
-      MenuItmes.style.maxHeight = "0px";
+    MenuItmes.style.maxHeight = "0px";
 
-      function menutoggle() {
-        if (MenuItmes.style.maxHeight == "0px") {
-          MenuItmes.style.maxHeight = "200px";
-        } else MenuItmes.style.maxHeight = "0px";
-      }
-    </script>
-  </body>
+    function menutoggle() {
+      if (MenuItmes.style.maxHeight == "0px") {
+        MenuItmes.style.maxHeight = "200px";
+      } else MenuItmes.style.maxHeight = "0px";
+    }
+  </script>
+</body>
+
 </html>
