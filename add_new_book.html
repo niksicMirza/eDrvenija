@@ -66,12 +66,36 @@
                   Insert book image
                 </button>
                 <input type="file" id="getFile" style="display: none" />
-                <input type="text" placeholder="Book name" />
-                <input type="text" placeholder="Writer" />
-                <input type="number" placeholder="Quantity" />
-                <input type="number" placeholder="Price (for 1 book)" />
-                <input type="text" placeholder="Your name" />
-                <input type="text" placeholder="Contact number" />
+                <input type="text" placeholder="Book name" required />
+
+                <input
+                  type="text"
+                  placeholder="Writer"
+                  onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode==32)"
+                  required
+                />
+                <input type="number" min="1" placeholder="Quantity" required />
+                <input
+                  type="number"
+                  min="1"
+                  placeholder="Price (for 1 book)"
+                  required
+                />
+                <input
+                  type="text"
+                  placeholder="Your name"
+                  onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode==32)"
+                  required
+                />
+                <input
+                  type="tel"
+                  id="phone"
+                  name="phone"
+                  placeholder="Contact number"
+                  pattern="((061|062|065|063)-[0-9]{3}-[0-9]{3})"
+                  title="You can only enter numbers! Use following format ***-***-*** "
+                  required
+                />
                 <button type="submit" class="btn">Add</button>
               </form>
             </div>

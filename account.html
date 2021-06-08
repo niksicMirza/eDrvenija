@@ -62,16 +62,38 @@
                 <hr id="Indicator" />
               </div>
               <form id="LoginForm">
-                <input type="text" placeholder="Username" />
-                <input type="password" placeholder="Password" />
+                <input
+                  type="text"
+                  placeholder="Username"
+                  onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode==32)"
+                  minlength="5"
+                  required
+                />
+                <input
+                  type="password"
+                  placeholder="Password"
+                  minlength="6"
+                  required
+                />
                 <button type="submit" class="btn">Login</button>
                 <a href="">Forgot password?</a>
               </form>
               <br /><br /><br /><br />
               <form id="RegForm">
-                <input type="text" placeholder="Username" />
-                <input type="email" placeholder="Email" />
-                <input type="password" placeholder="Password" />
+                <input
+                  type="text"
+                  placeholder="Username"
+                  onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode==32)"
+                  minlength="5"
+                  required
+                />
+                <input type="email" placeholder="Email" required />
+                <input
+                  type="password"
+                  placeholder="Password"
+                  minlength="6"
+                  required
+                />
                 <button type="submit" class="btn">Register</button>
               </form>
             </div>
