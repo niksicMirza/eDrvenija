@@ -19,9 +19,39 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/fontawesome.min.css"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css"
+    />
   </head>
 
   <body>
+    <div class="container">
+      <div class="navbar">
+        <div class="logo">
+          <a href="index.html"
+            ><img src="assets/img/edrvenija-transparent.png" width="125px"
+          /></a>
+        </div>
+        <nav>
+          <ul id="MenuItems">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="books.html">Books</a></li>
+            <li><a href="add_new_book.html">Add new book</a></li>
+            <li><a href="account.html">Account</a></li>
+          </ul>
+        </nav>
+        <a href="wishlist.html"
+          ><img src="assets/img/cart.png" width="30px" height="30px"
+        /></a>
+        <img
+          src="assets/img/menu.png"
+          class="menu-icon"
+          onclick="menutoggle()"
+        />
+      </div>
+    </div>
+
     <div class="add-new-book-page">
       <div class="container">
         <div class="row">
@@ -33,7 +63,11 @@
               <div class="form-title">
                 <h2>Add new book</h2>
               </div>
-              <form id="AddNewBook">
+              <form
+                id="AddNewBook"
+                name="AddNewBook"
+                onsubmit="return validateForm()"
+              >
                 <button
                   class="btn_image"
                   onclick="document.getElementById('getFile').click()"
@@ -41,26 +75,31 @@
                   Insert book image
                 </button>
                 <input type="file" id="getFile" style="display: none" />
-                <input type="text" placeholder="Book name" required />
+                <input type="text" name="book_name" placeholder="Book name" />
 
                 <input
                   type="text"
+                  name="writer_name"
                   placeholder="Writer"
                   onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode==32)"
-                  required
                 />
-                <input type="number" min="1" placeholder="Quantity" required />
                 <input
                   type="number"
+                  name="quantity"
+                  min="1"
+                  placeholder="Quantity"
+                />
+                <input
+                  type="number"
+                  name="price"
                   min="1"
                   placeholder="Price (for 1 book)"
-                  required
                 />
                 <input
                   type="text"
+                  name="user_name"
                   placeholder="Your name"
                   onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode==32)"
-                  required
                 />
                 <input
                   type="tel"
@@ -68,10 +107,9 @@
                   name="phone"
                   placeholder="Contact number"
                   pattern="((061|062|065|063)-[0-9]{3}-[0-9]{3})"
-                  title="You can only enter numbers! Use following format ***-***-*** "
-                  required
+                  title="You can only enter numbers! Use following format ***-***-***"
                 />
-                <button type="submit" class="btn">Add</button>
+                <button id="linkButton" type="submit" class="btn">Add</button>
               </form>
             </div>
           </div>
@@ -79,7 +117,41 @@
       </div>
     </div>
 
-    <!----------------js for nav menu---------->
+    <!----------------footer---------->
+    <div class="footer">
+      <div class="container">
+        <div class="row">
+          <div class="footer-col-1">
+            <h3>Download Our App</h3>
+            <p>Download App for Android of iOS.</p>
+            <div class="app-logo">
+              <img src="assets/img/play-store.png" />
+              <img src="assets/img/app-store.png" />
+            </div>
+          </div>
+          <div class="footer-col-2">
+            <img src="assets/img/edrvenija-black.png" />
+            <p>
+              Our Purpose Is To Sustainably Make the Pleasure and Benefits
+              <br />of Books Accessible to the Many.
+            </p>
+          </div>
+          <div class="footer-col-3">
+            <h3>Follow us</h3>
+            <ul>
+              <li>Facebook</li>
+              <li>Instagram</li>
+              <li>Twitter</li>
+              <li>YouTube</li>
+            </ul>
+          </div>
+        </div>
+        <hr />
+        <p class="copyright">Copyright 2021 - eDrvenija</p>
+      </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
     <script>
       var MenuItmes = document.getElementById("MenuItems");
 
@@ -89,6 +161,51 @@
         if (MenuItmes.style.maxHeight == "0px") {
           MenuItmes.style.maxHeight = "200px";
         } else MenuItmes.style.maxHeight = "0px";
+      }
+
+      function validateForm() {
+        var book_name = document.AddNewBook.book_name;
+        var writer_name = document.AddNewBook.writer_name;
+        var quantity = document.AddNewBook.quantity;
+        var price = document.AddNewBook.price;
+        var user_name = document.AddNewBook.user_name;
+        var phone = document.AddNewBook.phone;
+
+        if (book_name.value == "") {
+          toastr.error("Please enter book title.");
+          book_name.focus();
+          return false;
+        }
+
+        if (writer_name.value == "") {
+          toastr.error("Please enter an author name.");
+          writer_name.focus();
+          return false;
+        }
+        if (quantity.value == "") {
+          toastr.error("Please enter number of books you are selling.");
+          quantity.focus();
+          return false;
+        }
+        if (price.value == "") {
+          toastr.error("Please enter price for one book. (KM)");
+          price.focus();
+          return false;
+        }
+
+        if (user_name.value == "") {
+          toastr.error("Please enter your name.");
+          user_name.focus();
+          return false;
+        }
+        if (phone.value == "") {
+          toastr.error("Please enter your phone number.");
+          phone.focus();
+          return false;
+        } else {
+          alert("Book added successfully!");
+          return true;
+        }
       }
     </script>
   </body>

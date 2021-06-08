@@ -19,6 +19,11 @@
       type="img/png"
       href="assets/img/edrvenija-favicon.png"
     />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css"
+    />
   </head>
 
   <body>
@@ -52,7 +57,7 @@
     <div class="small-container wishlist-page">
       <table>
         <tr>
-          <th>Product</th>
+          <th>Book</th>
           <th>Quantity</th>
           <th>Subtotal</th>
         </tr>
@@ -64,7 +69,7 @@
                 <p>Ja sam Zlatan Ibrahimović</p>
                 <small>Price: 25 KM</small>
                 <br />
-                <a href="">Remove</a>
+                <a id="remove_book">Remove</a>
               </div>
             </div>
           </td>
@@ -79,7 +84,7 @@
                 <p>Mi djeca s kolodvora ZOO</p>
                 <small>Price: 20 KM</small>
                 <br />
-                <a href="">Remove</a>
+                <a id="remove_book1">Remove</a>
               </div>
             </div>
           </td>
@@ -94,7 +99,7 @@
                 <p>Slijedi svoje srce</p>
                 <small>Price: 10 KM</small>
                 <br />
-                <a href="">Remove</a>
+                <a id="remove_book2">Remove</a>
               </div>
             </div>
           </td>
@@ -109,7 +114,7 @@
                 <p>Staza sjećanja</p>
                 <small>Price: 20 KM</small>
                 <br />
-                <a href="">Remove</a>
+                <a id="remove_book3">Remove</a>
               </div>
             </div>
           </td>
@@ -162,6 +167,9 @@
       </div>
     </div>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+
     <script>
       var MenuItmes = document.getElementById("MenuItems");
 
@@ -172,6 +180,19 @@
           MenuItmes.style.maxHeight = "200px";
         } else MenuItmes.style.maxHeight = "0px";
       }
+
+      $("#remove_book").click(function () {
+        toastr.success("Book is removed from wish list!");
+      });
+      $("#remove_book1").click(function () {
+        toastr.success("Book is removed from wish list!");
+      });
+      $("#remove_book2").click(function () {
+        toastr.success("Book is removed from wish list!");
+      });
+      $("#remove_book3").click(function () {
+        toastr.success("Book is removed from wish list!");
+      });
     </script>
   </body>
 </html>

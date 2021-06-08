@@ -19,6 +19,10 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/fontawesome.min.css"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css"
+    />
   </head>
 
   <body>
@@ -62,40 +66,50 @@
                 <span onclick="register()">Register</span>
                 <hr id="Indicator" />
               </div>
-              <form id="LoginForm">
+              <form
+                id="LoginForm"
+                name="LoginForm"
+                onsubmit="return validateLoginForm()"
+              >
                 <input
                   type="text"
+                  name="username"
                   placeholder="Username"
                   onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode==32)"
                   minlength="5"
-                  required
                 />
                 <input
                   type="password"
+                  name="password"
                   placeholder="Password"
                   minlength="6"
-                  required
                 />
-                <button type="submit" class="btn">Login</button>
+                <button class="btn" id="signIn" type="submit">Login</button>
                 <a href="">Forgot password?</a>
               </form>
               <br /><br /><br /><br />
-              <form id="RegForm">
+              <form
+                id="RegForm"
+                name="RegForm"
+                onsubmit="return validateRegForm()"
+              >
                 <input
                   type="text"
+                  name="usernameReg"
                   placeholder="Username"
                   onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode==32)"
                   minlength="5"
-                  required
                 />
-                <input type="email" placeholder="Email" required />
+                <input type="email" name="emailReg" placeholder="Email" />
                 <input
                   type="password"
+                  name="passwordReg"
                   placeholder="Password"
                   minlength="6"
-                  required
                 />
-                <button type="submit" class="btn">Register</button>
+                <button class="btn" id="register" type="submit">
+                  Register
+                </button>
               </form>
             </div>
           </div>
@@ -136,6 +150,8 @@
         <p class="copyright">Copyright 2021 - eDrvenija</p>
       </div>
     </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
 
     <!----------------js for nav menu---------->
     <script>
@@ -166,6 +182,55 @@
         RegForm.style.transform = "translateX(300px)";
         LoginForm.style.transform = "translateX(300px)";
         Indicatior.style.transform = "translateX(0px)";
+      }
+    </script>
+
+    <script>
+      function validateLoginForm() {
+        var username = document.LoginForm.username;
+        var password = document.LoginForm.password;
+
+        if (username.value == "") {
+          toastr.error("Please enter username.");
+          username.focus();
+          return false;
+        }
+
+        if (password.value == "") {
+          toastr.error("Please enter password.");
+          password.focus();
+          return false;
+        } else {
+          alert("You are logged in!");
+          return true;
+        }
+      }
+    </script>
+    <script>
+      function validateRegForm() {
+        var usernameReg = document.RegForm.usernameReg;
+        var emailReg = document.RegForm.emailReg;
+        var passwordReg = document.RegForm.passwordReg;
+
+        if (usernameReg.value == "") {
+          toastr.error("Please enter username.");
+          usernameReg.focus();
+          return false;
+        }
+
+        if (emailReg.value == "") {
+          toastr.error("Please enter email.");
+          emailReg.focus();
+          return false;
+        }
+        if (passwordReg.value == "") {
+          toastr.error("Please enter password.");
+          passwordReg.focus();
+          return false;
+        } else {
+          alert("You have successfully created an account!");
+          return true;
+        }
       }
     </script>
   </body>
